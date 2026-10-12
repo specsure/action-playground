@@ -1,0 +1,19 @@
+name: Design tokens
+on: pull_request
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  tokens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: tokens
+        uses: specsure/dsgraph-action@main
+        with:
+          path: tokens
+          fail-on: major
+      - if: always()
+        run: echo "level=${{ steps.tokens.outputs.level }} changes=${{ steps.tokens.outputs.changes }} breaking=${{ steps.tokens.outputs.breaking }}"
