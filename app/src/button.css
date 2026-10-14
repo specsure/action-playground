@@ -1,0 +1,15 @@
+.button {
+  color: var(--color-text);
+  background: var(--color-accent);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  transition: background var(--duration-fast);
+}
+
+.button:hover {
+  background: var(--color-accent-hover);
+}
+
+.button--danger {
+  background: var(--color-danger);
+}

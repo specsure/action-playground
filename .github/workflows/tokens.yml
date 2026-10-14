@@ -14,6 +14,7 @@ jobs:
         uses: specsure/dsgraph-action@v1
         with:
           path: tokens
+          code: app
           fail-on: major
       - if: always()
-        run: echo "level=${{ steps.tokens.outputs.level }} changes=${{ steps.tokens.outputs.changes }} breaking=${{ steps.tokens.outputs.breaking }}"
+        run: echo "level=${{ steps.tokens.outputs.level }} changes=${{ steps.tokens.outputs.changes }} breaking=${{ steps.tokens.outputs.breaking }} code-breaks=${{ steps.tokens.outputs.code-breaks }}"
